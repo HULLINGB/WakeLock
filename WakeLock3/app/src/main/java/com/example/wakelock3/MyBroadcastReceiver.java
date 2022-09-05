@@ -13,7 +13,5 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
         Log.i("BroadcastReceiver", "This is our message");
         Toast.makeText(context, "This is our message", Toast.LENGTH_LONG);
-
-
     }
 }

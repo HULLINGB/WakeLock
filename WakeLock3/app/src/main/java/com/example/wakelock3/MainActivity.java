@@ -29,15 +29,16 @@ public class MainActivity extends AppCompatActivity {
         //intent to open MainActivity, and instantiate the PowerManager and WakeLock
 
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP,
                 "MyApp::MyWakelockTag");
+        //PowerManager.WakeLock wakeLock2 = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "TAG");
 
         try{
             wakeLock.acquire();
 
         }catch(Exception e)
         {
-
+            System.out.println("Wake lock did not succeed");
         }
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //call the release() method to end the wakelock
+                wakeLock.release();
             }
         });
     }
