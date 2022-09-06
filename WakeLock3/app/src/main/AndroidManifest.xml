@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wakelock3">
-    <!-- we use wakelock permission, and we could use SEND_SMS for texts and calls.
+    <!-- we use wakelock permission and foreground priority service
+    to prevent the system from closing the service
     -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
+    <!--allow for the app to possibly receive texts or calls then use Wakelock.
+    None of this is used yet.-->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <!-- we probably dont need to use the send -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CALLPRIVILEGED" />
-    <uses-permission android:name="android.permission." />
 
     <application
         android:allowBackup="true"

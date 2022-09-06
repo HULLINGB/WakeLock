@@ -10,8 +10,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
-        Log.i("BroadcastReceiver", "This is our message");
-        Toast.makeText(context, "This is our message", Toast.LENGTH_LONG);
+        Log.i("BroadcastReceiver", "Broadcast received");
+        Toast.makeText(context, "Broadcast received", Toast.LENGTH_LONG);
     }
 }
